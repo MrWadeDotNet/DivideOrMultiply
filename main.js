@@ -29,17 +29,44 @@ Exercise: Write a basic HTML / JavaScript program that does the following
     function multiply(multiNum) {
         return multiNum * 5;
     }
-    
-    function valueChecker() {
-      var getValue = document.getElementByName("convert");
-      console.log(getValue);
-    }
+   
+var getValue = document.getElementsByName("convert")[0].value;
+  console.log(getValue); 
 
-var button = document.getElementById("button");
+      function valueChecker(output) {
+            var outputToDom = document.getElementById("converted");
+            var output;
+       
+           if(getValue == 0){
+        output = "Please enter a number greater than 0!";
+          }
+      else if(getValue >= 10000)
+      { 
+         var newValue = divide(getValue);
+          output =  "The answer:" + divide(getValue);
+         console.log(output);
+      }
+      else if (getValue < 10000){
+         var newValue = multiply(getValue);          
+         output =  "The answer to less than 10000 is: " +  newValue;
+         console.log(output);
 
-button.onclick(valueChecker());
+      }
+return outputToDom.innerHTML = "<br>" + output; 
+   }
 
-    
+
+
+
+//console.log(valueChecker());
+
+var button = document.getElementById("converter");
+
+button.onclick = valueChecker();
+
+ //outputToDom.innerHTML = "<br>" + valueChecker();
+
+
 
 
 
